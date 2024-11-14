@@ -1,8 +1,5 @@
 
 import modelos.Conversion;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -22,7 +19,7 @@ public class Main {
             for(int i = 0; i<currencies.length; i++){
                 System.out.printf("%d.- %s ==> %s%n", i+1, currencies[i][0], currencies[i][1]);
             }
-            int opcion = -1;
+            int opcion;
 
             while(true){
                 System.out.print("\nSelecciona una opcion: ");
