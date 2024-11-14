@@ -23,20 +23,42 @@ public class Main {
                 CurrencyConversion currentCurrency = currencies.get(i);
                 System.out.printf("%d.- %s ==> %s%n", i + 1, currentCurrency.getBaseName(), currentCurrency.getTargetName());
             }
-            int opcion;
+            int opcion = 1;
+            boolean opcionValida = false;
 
-            while (true) {
+            while (!opcionValida) {
                 System.out.print("\nSelecciona una opcion: ");
-                opcion = entrada.nextInt();
-                if (opcion <= 0 || opcion > currencies.size()) {
-                    System.out.println("Opcion Invalida!, intentelo de nuevo");
-                    continue;
-                }
-                break;
-            }
 
-            System.out.print("Ingrese la cantidad a convertir: $");
-            double cantidad = entrada.nextDouble();
+                if (entrada.hasNextInt()) {
+                    opcion = entrada.nextInt();
+
+                    if (opcion > 0 && opcion <= currencies.size()) {
+                        opcionValida = true;
+                    } else {
+                        System.out.println("Opción inválida. Seleccione un numero de la lista");
+                    }
+                } else {
+                    System.out.println("Entrada inválida. Por favor, ingresa un número.");
+                    entrada.next();
+                }
+            }
+            double cantidad = 0;
+            boolean cantidadValida = false;
+
+            while (!cantidadValida) {
+                System.out.print("Ingrese la cantidad a convertir: $");
+                if (entrada.hasNextDouble()) {
+                    cantidad = entrada.nextDouble();
+                    if (cantidad >= 0) {
+                        cantidadValida = true;
+                    } else {
+                        System.out.println("Cantidad inválida, ingrese un valor mayor o igual a 0.");
+                    }
+                } else {
+                    System.out.println("Entrada inválida. Por favor ingrese un número válido.");
+                    entrada.next();
+                }
+            }
             CurrencyConversion selectedCurrency = currencies.get(opcion - 1);
             try {
                 double resultado = Conversion.getConversion(selectedCurrency.getBaseCode(), selectedCurrency.getTargetCode(), cantidad);
