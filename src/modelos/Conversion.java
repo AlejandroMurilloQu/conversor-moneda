@@ -20,7 +20,7 @@ public class Conversion {
             String json = response.body();
             ApiConversion bodyApi = gson.fromJson(json, ApiConversion.class);
             if(response.statusCode() != 200){
-                throw new ConversionException(bodyApi.errorType());
+                throw new Exception(bodyApi.errorType());
             }
             return bodyApi.conversion_result();
         }
