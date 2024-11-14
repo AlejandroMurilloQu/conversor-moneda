@@ -10,7 +10,6 @@ import java.net.http.HttpResponse;
 public class Conversion {
     public static double getConversion(String baseCode, String targetCode, double cantidad) throws Exception {
         String token = "0b14289b1ee8a86dc48c7ff0";
-
         HttpClient cliente = HttpClient.newHttpClient();
         String url = String.format("https://v6.exchangerate-api.com/v6/%s/pair/%s/%s/%f", token, baseCode, targetCode, cantidad);
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();

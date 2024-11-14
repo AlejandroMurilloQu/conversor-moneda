@@ -11,10 +11,10 @@ public class Main {
         while (true) {
             System.out.println("\n************** CONVERSOR DE MONEDAS **************\n");
             List<CurrencyConversion> currencies = Arrays.asList(
-                    new CurrencyConversion("Pesos Mexicanos", "Dolares", "MXN", "USD"),
-                    new CurrencyConversion("Dolares", "Pesos Mexicanos", "USD", "MXN"),
-                    new CurrencyConversion("Pesos Argentinos", "Dolares", "ARS", "USD"),
-                    new CurrencyConversion("Dolares", "Pesos Argentinos", "USD", "ARS"),
+                    new CurrencyConversion("Pesos Mexicanos", "Dólares", "MXN", "USD"),
+                    new CurrencyConversion("Dólares", "Pesos Mexicanos", "USD", "MXN"),
+                    new CurrencyConversion("Pesos Argentinos", "Dólares", "ARS", "USD"),
+                    new CurrencyConversion("Dólares", "Pesos Argentinos", "USD", "ARS"),
                     new CurrencyConversion("Pesos Colombianos", "Pesos Mexicanos", "COP", "MXN"),
                     new CurrencyConversion("Pesos Mexicanos", "Pesos Colombianos  ", "MXN", "COP")
             );
